@@ -1,0 +1,17 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix ns1: <http://project-iasis.eu/vocab/> .
+
+ns1:DrugShape
+    a sh:NodeShape ;
+    sh:targetClass ns1:Drug ;
+    sh:property [
+        sh:path ns1:drugBankID;
+        sh:minCount 1;
+    ] ;
+
+    sh:property [
+        sh:path ns1:drugLabel;
+        sh:minCount 1;
+    ] ;
+
+ .
