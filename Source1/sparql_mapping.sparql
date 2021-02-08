@@ -1,0 +1,26 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX iasis: <http://project-iasis.eu/vocab/>
+PREFIX bio2rdf: <http://bio2rdf.org/>
+
+Construct
+{
+  ?drug rdf:type <http://project-iasis.eu/vocab/Drug>;
+    	<http://project-iasis.eu/vocab/drugLabel> ?title;
+    <http://project-iasis.eu/vocab/drugBankID> ?drugbankId;
+    rdfs:comment ?description;
+    rdfs:seeAlso ?seeAlso;
+    <http://project-iasis.eu/vocab/hasDrugGroup> ?drugGroup;
+    <http://project-iasis.eu/vocab/hasTarget> ?target
+}
+Where
+{
+    ?drug a <http://bio2rdf.org/drugbank_vocabulary:Drug>;
+         <http://purl.org/dc/terms/title> ?title;
+         <http://purl.org/dc/terms/description> ?description;
+         <http://bio2rdf.org/drugbank_vocabulary:drugbank-id> ?drugbankId;
+         <http://www.w3.org/2000/01/rdf-schema#seeAlso> ?seeAlso;
+         <http://bio2rdf.org/drugbank_vocabulary:group> ?drugGroup;
+         <http://bio2rdf.org/drugbank_vocabulary:target> ?target;
+         .
+}
